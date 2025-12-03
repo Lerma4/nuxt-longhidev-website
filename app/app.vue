@@ -22,7 +22,7 @@
               <div class="absolute -top-8 -left-8 w-full border-t-2 border-l-2 border-primary h-12"></div>
               <div class="absolute -bottom-8 -right-8 w-full border-b-2 border-r-2 border-primary h-12"></div>
               <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold uppercase tracking-tighter bg-primary text-background-dark dark:text-background-dark py-4 px-8 relative z-10">
-                Enigma
+                LonghiDev
               </h1>
             </div>
             <p class="mt-8 text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
