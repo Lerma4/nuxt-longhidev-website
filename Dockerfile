@@ -1,26 +1,34 @@
-# Stage 1: Build the static site
-FROM node:20-alpine AS builder
+# Use node image for base
+FROM node:20-alpine AS base
 
+# Set working directory
 WORKDIR /app
 
 # Install dependencies
 COPY package*.json ./
 RUN npm ci
 
-# Copy source code
+# Copy app source
 COPY . .
 
-# Generate static site
-RUN npm run generate
+# Build the app
+RUN npm run build
 
-# Stage 2: Serve with Nginx
-FROM nginx:alpine
+# Start a new stage for a smaller production image
+FROM node:20-alpine AS release
 
-# Copy static assets from builder stage
-COPY --from=builder /app/.output/public /usr/share/nginx/html
+WORKDIR /app
 
-# Expose port 80
-EXPOSE 80
+# Copy the build output from the builder stage
+COPY --from=base /app/.output /app/.output
 
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Set environment variables
+ENV NODE_ENV=production
+ENV PORT=3000
+ENV HOST=0.0.0.0
+
+# Expose the port
+EXPOSE 3000
+
+# Start the application
+CMD ["node", ".output/server/index.mjs"]
