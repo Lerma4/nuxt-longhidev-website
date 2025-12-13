@@ -3,6 +3,7 @@ import { usePortfolioData } from '~~/composables/usePortfolioData'
 import ModernTemplate from '~~/components/ModernTemplate.vue'
 import Win95Template from '~~/components/Win95Template.vue'
 import SixtiesTemplate from '~~/components/SixtiesTemplate.vue'
+import TerminalTemplate from '~~/components/TerminalTemplate.vue'
 
 const portfolioData = usePortfolioData()
 const currentTemplate = ref('modern')
@@ -10,7 +11,8 @@ const currentTemplate = ref('modern')
 const templates = {
   modern: ModernTemplate,
   win95: Win95Template,
-  sixties: SixtiesTemplate
+  sixties: SixtiesTemplate,
+  terminal: TerminalTemplate
 }
 
 const currentTemplateComponent = computed(() => templates[currentTemplate.value])
@@ -24,6 +26,7 @@ const currentTemplateComponent = computed(() => templates[currentTemplate.value]
         <option value="modern">Modern</option>
         <option value="win95">Windows 95</option>
         <option value="sixties">1960s Ads</option>
+        <option value="terminal">Terminal</option>
       </select>
     </div>
     
