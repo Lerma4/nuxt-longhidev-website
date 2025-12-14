@@ -26,6 +26,10 @@ const inputRef = ref(null)
 const currentTime = ref('')
 let timeInterval = null
 
+// Random animal emoji
+const animals = ['🐙', '🐘', '🦀', '🐧', '🦁', '🦓']
+const randomAnimal = ref(animals[Math.floor(Math.random() * animals.length)])
+
 // Update time
 const updateTime = () => {
   const now = new Date()
@@ -396,7 +400,7 @@ const findCommonPrefix = (strings) => {
         <template v-if="entry.type === 'command'">
           <!-- Powerlevel10k-style prompt -->
           <div class="p10k-prompt">
-            <span class="p10k-segment p10k-os">🐧</span>
+            <span class="p10k-segment p10k-os">{{ randomAnimal }}</span>
             <span class="p10k-arrow p10k-arrow-os"></span>
             <span class="p10k-segment p10k-user">guest</span>
             <span class="p10k-arrow p10k-arrow-user"></span>
@@ -419,7 +423,7 @@ const findCommonPrefix = (strings) => {
       <!-- Current input line - Powerlevel10k style -->
       <div class="terminal-input-wrapper">
         <div class="p10k-prompt">
-          <span class="p10k-segment p10k-os">🐧</span>
+          <span class="p10k-segment p10k-os">{{ randomAnimal }}</span>
           <span class="p10k-arrow p10k-arrow-os"></span>
           <span class="p10k-segment p10k-user">guest</span>
           <span class="p10k-arrow p10k-arrow-user"></span>
