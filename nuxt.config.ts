@@ -9,9 +9,11 @@ export default defineNuxtConfig({
   googleFonts: {
     families: {
       'Space+Grotesk': [400, 500, 700],
-      'VT323': [400]
+      'VT323': [400],
+      'Inter': [300, 400, 500, 600, 700, 900]
     }
   },
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true }
 })
+
